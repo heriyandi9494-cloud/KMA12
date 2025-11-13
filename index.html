@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catatan Ayat Emas</title>
+
+  <!-- Font Elegan -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fbf9f7;
+      --card: #ffffff;
+      --muted: #7b6f6a;
+      --accent: #8aa29e;
+      --glow: rgba(138,162,158,0.45);
+      --radius: 14px;
+      --shadow: 0 8px 25px rgba(18,18,20,0.06);
+    }
+
+    html, body {
+      margin:0;
+      padding:0;
+      background: linear-gradient(180deg, #05f3ef 0%, #ebe71b 100%);
+      font-family: 'Inter', sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:30px;
+      color:#2b2b2b;
+    }
+
+    /* CARD UTAMA (bercahaya lembut) */
+    .container{
+      width:100%;
+      max-width:900px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow: 0 0 20px rgba(242, 30, 2, 0.2);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:24px;
+      border:1px solid rgba(130,130,130,0.08);
+    }
+
+    /* HEADER */
+    .header{
+      grid-column:1/-1;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      padding-bottom:12px;
+      border-bottom:1px solid rgba(241, 5, 5, 0.08);
+    }
+
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:12px;
+      background: linear-gradient(135deg,#1206f2,#060af6);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:'Playfair Display',serif;
+      color:rgb(251, 246, 246);
+      font-size:20px;
+      font-weight:700;
+      box-shadow:0 0 18px var(--glow);
+    }
+
+    .title{
+      font-family:'Playfair Display',serif;
+      font-size:22px;
+      color:#0603d6;
+    }
+
+    .subtitle{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* FORM AREA */
+    .field{
+      display:flex;
+      flex-direction:column;
+      margin-bottom:15px;
+      gap:8px;
+    }
+
+    label{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* Kotak Input Glowing */
+    .value, textarea{
+      background:rgb(223, 216, 138);
+      border:none;
+      border-radius:12px;
+      padding:12px 14px;
+      font-size:15px;
+      box-shadow: inset 0 0 12px rgba(239, 4, 4, 0.06),
+                  0 0 18px rgba(125,165,160,0.25);
+      transition:0.2s;
+    }
+
+    .value:focus, textarea:focus{
+      outline:none;
+      box-shadow: inset 0 0 12px rgba(0,0,0,0.05),
+                  0 0 26px rgba(96,140,134,0.40);
+      transform:translateY(-2px);
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+      font-family:inherit;
+    }
+
+    /* KOTAK PRATINJAU */
+    .meta{
+      background:rgba(89, 117, 221, 0);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 0 20px rgba(125,165,160,0.25);
+      border:1px solid rgba(120,120,120,0.06);
+    }
+
+    .meta h3{
+      margin:0 0 8px 0;
+      font-family:'Playfair Display',serif;
+      font-size:18px;
+    }
+
+    /* Kotak Pilihan Ayat Emas Glowing Tambahan */
+    .glow-box{
+      background:rgb(243, 243, 239);
+      margin-top:12px;
+      border-radius:12px;
+      padding:12px;
+      box-shadow:0 0 20px rgba(125,165,160,0.28);
+      border:1px solid rgba(130,130,130,0.12);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .glow-box::after{
+      content:"";
+      position:absolute;
+      inset:-40% -40%;
+      background: radial-gradient(circle, rgba(138,162,158,0.15), transparent 50%);
+      transform:rotate(20deg);
+      filter:blur(20px);
+    }
+
+    .ayat-title{
+      font-family:'Playfair Display',serif;
+      margin-bottom:6px;
+      font-size:16px;
+    }
+
+    .foot{
+      grid-column:1/-1;
+      margin-top:20px;
+      text-align:center;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* Buttons */
+    button{
+      cursor:pointer;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      font-weight:600;
+    }
+
+    #saveBtn{
+      background:linear-gradient(90deg,#0b03ed,#0a0ae3);
+      color:rgb(243, 239, 239);
+      box-shadow:0 0 15px rgba(125,165,160,0.40);
+    }
+
+    #fillDate, #clearBtn{
+      background:rgb(234, 8, 8);
+      border:1px solid rgba(130,130,130,0.12);
+      box-shadow:0 0 10px rgba(125,165,160,0.20);
+    }
+
+    @media(max-width:880px){
+      .container{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">KS</div>
+      <div>
+        <div class="title">GᖇOᑌᑭ Kᗰᗩ312 ᕼᗩᖇI</div>
+        <div class="subtitle">𝓚𝓸𝓶𝓲𝓽 𝓜𝓮𝓶𝓫𝓪𝓬𝓪 𝓐𝓵𝓴𝓲𝓽𝓪𝓫 𝓼𝓮𝓵𝓪𝓶𝓪 312 𝓱𝓪𝓻𝓲😍</div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div>
+      <div class="field">
+        <label>𝐍𝐎 :</label>
+        <input class="value" id="no" placeholder="Masukkan No Urut anda">
+      </div>
+
+      <div class="field">
+        <label>𝐍𝐀𝐌𝐀 :</label>
+        <input class="value" id="nama" placeholder="Masukkan nama">
+      </div>
+
+      <div class="field">
+        <label>𝐇𝐀𝐑𝐈 𝐃𝐀𝐍 𝐓𝐀𝐍𝐆𝐆𝐀𝐋 :</label>
+        <input class="value" id="hari" placeholder="Senin, 1 September 2025">
+      </div>
+
+      <div class="field">
+        <label>𝐁𝐀𝐂𝐀𝐀𝐍:</label>
+        <textarea id="bacaan" placeholder="Misal: Kejadian 4:7"></textarea>
+      </div>
+
+      <div class="field">
+        <label>𝐏𝐈𝐋𝐈𝐇𝐀𝐍 𝐀𝐘𝐀𝐓 𝐄𝐌𝐀𝐒:</label>
+        <textarea id="pilihan" placeholder="Masukkan ayat emas pilihan anda"></textarea>
+      </div>
+
+      <div style="display:flex; gap:10px;">
+        <button id="saveBtn">𝓢𝓲𝓶𝓹𝓪𝓷</button>
+        <button id="fillDate">𝓘𝓼𝓲 𝓞𝓽𝓸𝓶𝓪𝓽𝓲𝓼</button>
+        <button id="clearBtn">𝓑𝓮𝓻𝓼𝓲𝓱𝓴𝓪𝓷</button>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="meta">
+      <h3>Pratinjau</h3>
+
+      <p id="metaNo">NO: —</p>
+      <p id="metaNama">Nama: —</p>
+      <p id="metaHari">Hari dan tanggal: —</p>
+
+      <div class="glow-box">
+        <div class="ayat-title">Ayat Emas</div>
+        <div id="metaAyat">Belum ada isi.</div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <span style="font-size:13px;color:var(--muted);">Bacaan :</span>
+        <div id="metaBacaan" style="margin-top:6px; font-size:14px;">—</div>
+      </div>
+    </div>
+
+    <div class="foot">𝘽𝙞𝙖𝙧𝙡𝙖𝙝 𝙆𝙞𝙩𝙖𝙗 𝙎𝙪𝙘𝙞 𝙢𝙚𝙣𝙟𝙖𝙙𝙞 𝙥𝙚𝙡𝙞𝙩𝙖 𝙮𝙖𝙣𝙜 𝙢𝙚𝙣𝙪𝙣𝙩𝙪𝙣 𝙡𝙖𝙣𝙜𝙠𝙖𝙝𝙢𝙪 𝙙𝙖𝙣 𝙨𝙪𝙢𝙗𝙚𝙧 𝙙𝙖𝙢𝙖𝙞 𝙙𝙖𝙡𝙖𝙢 𝙨𝙚𝙩𝙞𝙖𝙥 𝙠𝙚𝙥𝙪𝙩𝙪𝙨𝙖𝙣𝙢𝙪</div>
+  </div>
+
+  <script>
+    const noEl = document.getElementById("no");
+    const namaEl = document.getElementById("nama");
+    const hariEl = document.getElementById("hari");
+    const bacaanEl = document.getElementById("bacaan");
+    const pilihanEl = document.getElementById("pilihan");
+
+    const metaNo = document.getElementById("metaNo");
+    const metaNama = document.getElementById("metaNama");
+    const metaHari = document.getElementById("metaHari");
+    const metaAyat = document.getElementById("metaAyat");
+    const metaBacaan = document.getElementById("metaBacaan");
+
+    function updatePreview(){
+      metaNo.textContent = "NO: " + (noEl.value || "—");
+      metaNama.textContent = "Nama: " + (namaEl.value || "—");
+      metaHari.textContent = "Hari dan tanggal: " + (hariEl.value || "—");
+      metaAyat.textContent = pilihanEl.value || "Belum ada isi.";
+      metaBacaan.textContent = bacaanEl.value || "—";
+    }
+
+    [noEl, namaEl, hariEl, bacaanEl, pilihanEl].forEach(i => {
+      i.addEventListener("input", updatePreview);
+    });
+
+    document.getElementById("fillDate").onclick = () => {
+      const d = new Date();
+      hariEl.value = d.toLocaleDateString("id-ID", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+      updatePreview();
+    };
+
+    document.getElementById("clearBtn").onclick = () => {
+      noEl.value = "";
+      namaEl.value = "";
+      hariEl.value = "";
+      bacaanEl.value = "";
+      pilihanEl.value = "";
+      updatePreview();
+    };
+
+    updatePreview();
+  </script>
+
+</body>
+</html>
