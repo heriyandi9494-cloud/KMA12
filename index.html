@@ -31,7 +31,6 @@
       color:#2b2b2b;
     }
 
-    /* CARD UTAMA (bercahaya lembut) */
     .container{
       width:100%;
       max-width:900px;
@@ -45,7 +44,6 @@
       border:1px solid rgba(130,130,130,0.08);
     }
 
-    /* HEADER */
     .header{
       grid-column:1/-1;
       display:flex;
@@ -81,7 +79,6 @@
       color:var(--muted);
     }
 
-    /* FORM AREA */
     .field{
       display:flex;
       flex-direction:column;
@@ -94,7 +91,6 @@
       color:var(--muted);
     }
 
-    /* Kotak Input Glowing */
     .value, textarea{
       background:rgb(248, 248, 247);
       border:none;
@@ -119,7 +115,6 @@
       font-family:inherit;
     }
 
-    /* KOTAK PRATINJAU */
     .meta{
       background:rgba(89, 117, 221, 0);
       padding:18px;
@@ -134,7 +129,6 @@
       font-size:18px;
     }
 
-    /* Kotak Pilihan Ayat Emas Glowing Tambahan */
     .glow-box{
       background:rgb(243, 243, 239);
       margin-top:12px;
@@ -169,7 +163,6 @@
       color:var(--muted);
     }
 
-    /* Buttons */
     button{
       cursor:pointer;
       padding:10px 14px;
@@ -191,9 +184,7 @@
     }
 
     @media(max-width:880px){
-      .container{
-        grid-template-columns:1fr;
-      }
+      .container{ grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -204,49 +195,47 @@
     <div class="header">
       <div class="logo">KS</div>
       <div>
-        <div class="title">GᖇOᑌᑭ Kᗰᗩ312 ᕼᗩᖇI</div>
-        <div class="subtitle">𝓚𝓸𝓶𝓲𝓽 𝓜𝓮𝓶𝓫𝓪𝓬𝓪 𝓐𝓵𝓴𝓲𝓽𝓪𝓫 𝓼𝓮𝓵𝓪𝓶𝓪 312 𝓱𝓪𝓻𝓲😍</div>
+        <div class="title">𝙺𝙼𝙰𝟹𝟷𝟸 𝙷𝙰𝚁𝙸</div>
+        <div class="subtitle">𝐊𝐎𝐌𝐈𝐓 𝐌𝐄𝐌𝐁𝐀𝐂𝐀 𝐀𝐋𝐊𝐈𝐓𝐀𝐁 𝐒𝐄𝐋𝐀𝐌𝐀 𝟑𝟏𝟐 𝐇𝐀𝐑𝐈</div>
       </div>
     </div>
 
-    <!-- Form -->
     <div>
       <div class="field">
         <label>𝐍𝐎 :</label>
-        <input class="value" id="no" placeholder="Masukkan No Urut anda">
+        <input class="value" id="no" placeholder="ᴹᵃˢᵘᵏᵏᵃⁿ ᴺᵒ ᵁʳᵘᵗ ᵃⁿᵈᵃ">
       </div>
 
       <div class="field">
         <label>𝐍𝐀𝐌𝐀 :</label>
-        <input class="value" id="nama" placeholder="Masukkan nama">
+        <input class="value" id="nama" placeholder="ᴹᵃˢᵘᵏᵏᵃⁿ ⁿᵃᵐᵃ">
       </div>
 
       <div class="field">
         <label>𝐇𝐀𝐑𝐈 𝐃𝐀𝐍 𝐓𝐀𝐍𝐆𝐆𝐀𝐋 :</label>
-        <input class="value" id="hari" placeholder="Senin, 1 September 2025">
+        <input class="value" id="hari" placeholder="ˢᵉⁿⁱⁿ, ¹ ˢᵉᵖᵗᵉᵐᵇᵉʳ ²⁰²⁵">
       </div>
 
       <div class="field">
         <label>𝐁𝐀𝐂𝐀𝐀𝐍:</label>
-        <textarea id="bacaan" placeholder="Misal: Kejadian 4:7"></textarea>
+        <textarea id="bacaan" placeholder="ᴹⁱˢᵃˡ: ᴷᵉʲᵃᵈⁱᵃⁿ ⁴:⁷"></textarea>
       </div>
 
       <div class="field">
         <label>𝐏𝐈𝐋𝐈𝐇𝐀𝐍 𝐀𝐘𝐀𝐓 𝐄𝐌𝐀𝐒:</label>
-        <textarea id="pilihan" placeholder="Masukkan ayat emas pilihan anda"></textarea>
+        <textarea id="pilihan" placeholder="ᴹᵃˢᵘᵏᵏᵃⁿ ᵃʸᵃᵗ ᵉᵐᵃˢ ᵖⁱˡⁱʰᵃⁿ ᵃⁿᵈᵃ"></textarea>
       </div>
 
-      <div style="display:flex; gap:10px;">
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <button id="saveBtn">ꜱɪᴍᴘᴀɴ</button>
         <button id="fillDate">ɪꜱɪ ᴏᴛᴏᴍᴀᴛɪꜱ</button>
         <button id="clearBtn">ʜᴀᴘᴜꜱ</button>
+        <a id="downloadLink" style="display:none; padding:10px 14px; background:#0a0ae3; color:white; border-radius:10px; text-decoration:none;">Download Teks</a>
       </div>
     </div>
 
-    <!-- Preview -->
     <div class="meta">
       <h3>ℍ𝔸𝕊𝕀𝕃</h3>
-
       <p id="metaNo">NO: —</p>
       <p id="metaNama">Nama: —</p>
       <p id="metaHari">Hari dan tanggal: —</p>
@@ -262,51 +251,61 @@
       </div>
     </div>
 
-    <div class="foot">𝘽𝙞𝙖𝙧𝙡𝙖𝙝 𝙆𝙞𝙩𝙖𝙗 𝙎𝙪𝙘𝙞 𝙢𝙚𝙣𝙟𝙖𝙙𝙞 𝙥𝙚𝙡𝙞𝙩𝙖 𝙮𝙖𝙣𝙜 𝙢𝙚𝙣𝙪𝙣𝙩𝙪𝙣 𝙡𝙖𝙣𝙜𝙠𝙖𝙝𝙢𝙪 𝙙𝙖𝙣 𝙨𝙪𝙢𝙗𝙚𝙧 𝙙𝙖𝙢𝙖𝙞 𝙙𝙖𝙡𝙖𝙢 𝙨𝙚𝙩𝙞𝙖𝙥 𝙠𝙚𝙥𝙪𝙩𝙪𝙨𝙖𝙣𝙢𝙪</div>
+    <div class="foot">𝘽𝙞𝙖𝙧𝙡𝙖𝙝 𝙆𝙞𝙩𝙖𝙗 𝙎𝙪𝙘𝙞 𝙢𝙚𝙣𝙟𝙖𝙙𝙞 𝙥𝙚𝙡𝙞𝙩𝙖...</div>
   </div>
 
-  <script>
-    const noEl = document.getElementById("no");
-    const namaEl = document.getElementById("nama");
-    const hariEl = document.getElementById("hari");
-    const bacaanEl = document.getElementById("bacaan");
-    const pilihanEl = document.getElementById("pilihan");
+<script>
+  const noEl = document.getElementById("no");
+  const namaEl = document.getElementById("nama");
+  const hariEl = document.getElementById("hari");
+  const bacaanEl = document.getElementById("bacaan");
+  const pilihanEl = document.getElementById("pilihan");
 
-    const metaNo = document.getElementById("metaNo");
-    const metaNama = document.getElementById("metaNama");
-    const metaHari = document.getElementById("metaHari");
-    const metaAyat = document.getElementById("metaAyat");
-    const metaBacaan = document.getElementById("metaBacaan");
+  const metaNo = document.getElementById("metaNo");
+  const metaNama = document.getElementById("metaNama");
+  const metaHari = document.getElementById("metaHari");
+  const metaAyat = document.getElementById("metaAyat");
+  const metaBacaan = document.getElementById("metaBacaan");
+  const downloadLink = document.getElementById("downloadLink");
 
-    function updatePreview(){
-      metaNo.textContent = "NO: " + (noEl.value || "—");
-      metaNama.textContent = "Nama: " + (namaEl.value || "—");
-      metaHari.textContent = "Hari dan tanggal: " + (hariEl.value || "—");
-      metaAyat.textContent = pilihanEl.value || "Belum ada isi.";
-      metaBacaan.textContent = bacaanEl.value || "—";
-    }
+  function updatePreview(){
+    metaNo.textContent = "NO: " + (noEl.value || "—");
+    metaNama.textContent = "Nama: " + (namaEl.value || "—");
+    metaHari.textContent = "Hari dan tanggal: " + (hariEl.value || "—");
+    metaAyat.textContent = pilihanEl.value || "Belum ada isi.";
+    metaBacaan.textContent = bacaanEl.value || "—";
+  }
 
-    [noEl, namaEl, hariEl, bacaanEl, pilihanEl].forEach(i => {
-      i.addEventListener("input", updatePreview);
-    });
+  [noEl, namaEl, hariEl, bacaanEl, pilihanEl].forEach(i => i.addEventListener("input", updatePreview));
 
-    document.getElementById("fillDate").onclick = () => {
-      const d = new Date();
-      hariEl.value = d.toLocaleDateString("id-ID", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
-      updatePreview();
-    };
-
-    document.getElementById("clearBtn").onclick = () => {
-      noEl.value = "";
-      namaEl.value = "";
-      hariEl.value = "";
-      bacaanEl.value = "";
-      pilihanEl.value = "";
-      updatePreview();
-    };
-
+  document.getElementById("fillDate").onclick = () => {
+    const d = new Date();
+    hariEl.value = d.toLocaleDateString("id-ID", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
     updatePreview();
-  </script>
+  };
+
+  document.getElementById("clearBtn").onclick = () => {
+    noEl.value = "";
+    namaEl.value = "";
+    hariEl.value = "";
+    bacaanEl.value = "";
+    pilihanEl.value = "";
+    updatePreview();
+  };
+
+  document.getElementById("saveBtn").onclick = () => {
+    let text = `NO: ${noEl.value}\nNama: ${namaEl.value}\nHari dan Tanggal: ${hariEl.value}\nBacaan: ${bacaanEl.value}\nAyat Emas: ${pilihanEl.value}`;
+
+    let blob = new Blob([text], { type: "text/plain" });
+    let url = URL.createObjectURL(blob);
+
+    downloadLink.href = url;
+    downloadLink.download = `Catatan-${namaEl.value || "data"}.txt`;
+    downloadLink.style.display = "inline-block";
+  };
+
+  updatePreview();
+</script>
 
 </body>
 </html>
